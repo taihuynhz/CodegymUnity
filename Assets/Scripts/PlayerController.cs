@@ -31,6 +31,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] protected float minDistanceManual = 10f;
     [SerializeField] protected List<Vector3> checkPoints;
 
+    [Header("===== Car Models =====")]
+    [SerializeField] protected List<Transform> models;
+
+    protected enum CarModel { Car5A, Car5B, Car7A }
+    protected CarModel model = CarModel.Car5A;
+
     protected enum Axel { Front, Rear }
     [Serializable] protected struct Wheel
     {
@@ -54,10 +60,15 @@ public class PlayerController : MonoBehaviour
         rigidbody.centerOfMass = Vector3.zero;
     }
 
+    private void Update()
+    {
+        ChangeModel();
+        GetPlayerSpeed();
+    }
+
     protected void FixedUpdate()
     {
         CarMode();
-        GetPlayerSpeed();
     }
 
     protected void CarMode()
@@ -155,6 +166,18 @@ public class PlayerController : MonoBehaviour
         {
             currentPoint = 0;
             laps++;
+        }
+    }
+
+    protected void ChangeModel()
+    {
+        if (Input.GetKeyDown(KeyCode.F)) model++;
+        if ((int)model >= 3) model = 0;
+
+        for (int i = 0; i < models.Count; i++)
+        {
+            if (i == (int)model) models[i].gameObject.SetActive(true);
+            else models[i].gameObject.SetActive(false);
         }
     }
 
