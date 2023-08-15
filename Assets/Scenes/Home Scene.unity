@@ -2007,7 +2007,6 @@ GameObject:
   - component: {fileID: 1645145921}
   - component: {fileID: 1645145920}
   - component: {fileID: 1645145919}
-  - component: {fileID: 1645145922}
   m_Layer: 5
   m_Name: PlayButton
   m_TagString: Untagged
@@ -2118,19 +2117,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1645145917}
   m_CullTransparentMesh: 1
---- !u!114 &1645145922
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1645145917}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71c39dbdc4d7f304b8ebf064512bd755, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playButton: {fileID: 1645145919}
 --- !u!1 &1665701792
 GameObject:
   m_ObjectHideFlags: 0

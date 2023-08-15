@@ -55,7 +55,7 @@ public class PlayerController : MonoBehaviour
     protected enum DriveMode { Manual, Automatic }
     protected DriveMode mode = DriveMode.Manual;
     protected Vector3 lastPosition;
-    protected float playerSpeed;
+    public float playerSpeed;
 
     protected void Awake()
     {
@@ -70,11 +70,11 @@ public class PlayerController : MonoBehaviour
     protected void Update()
     {
         ChangeModel();
-        GetPlayerSpeed();
     }
 
     protected void FixedUpdate()
     {
+        GetPlayerSpeed();
         CarMode();
     }
 
@@ -115,7 +115,6 @@ public class PlayerController : MonoBehaviour
                 wheel.wheelCollider.motorTorque = Input.GetAxis("Vertical") * 600 * maxAcceleration * Time.deltaTime;
             }
         }
-
     }
 
     protected void Steering()
